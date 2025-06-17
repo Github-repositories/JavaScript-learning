@@ -24,10 +24,10 @@ export const authMiddleware = (req, res, next) => {
 export const generateToken = (req, user) => {
     return jwt.sign({ username: user.username, password: user.password }, process.env.JWT_SECRET);
     const payload = {
-  username: req.body.username || process.env.JWT_USERNAME,
-  password: req.body.password || process.env.JWT_PASSWORD
-};
-const secretKey = 'your-secret-key';
-const token = jwt.sign(payload, secretKey, { expiresIn: '1h' });
-console.log(token);
-    }
+        username: req.body.username || process.env.JWT_USERNAME,
+        password: req.body.password || process.env.JWT_PASSWORD
+    };
+    const secretKey = 'your-secret-key';
+    const token = jwt.sign(payload, secretKey, { expiresIn: '1h' });
+    console.log(token);
+}
