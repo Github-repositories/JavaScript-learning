@@ -1,6 +1,6 @@
 import express from 'express';
+const app = express();
 const loggerMiddleware = (req, res, next) => {
-    const app = express();
     const timestamp = new date().toISOString();
     const { method, url } = req;
     console.log(`${timestamp}  ${method}  ${url}`);
