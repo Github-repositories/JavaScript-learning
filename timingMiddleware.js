@@ -11,7 +11,10 @@ app.use((req, res, next) => {
 })
 
 app.get('/', (req, res) => {
-    res.send('Hello there...');
+    res.send('Hello there...I am learning node js');
 });
 
-app.listen(3000, () => console.log('Server is running on port 3000'));
+const port = process.env.port || 3000;
+app.listen(port, () => {
+    console.log(`server is running on the port ${port}`)
+});

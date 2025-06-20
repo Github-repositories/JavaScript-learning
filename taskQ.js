@@ -23,8 +23,8 @@ const taskQ = new taskQueue();
 const data = [{ type: 'email', content: 'Hello, this is a test email.' },
     { type: 'sms', content: 'Hello, this is a test SMS.' }];
     data.forEach(item => {
-        setTimeout(() => {
+        setInterval(() => {
             taskQ.addTask(item);
-        }, 5000);
+        }, 2000);
         console.log(`Task added: ${item.type}`);
     });
