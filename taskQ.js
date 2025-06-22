@@ -28,3 +28,4 @@ const data = [{ type: 'email', content: 'Hello, this is a test email.' },
         }, 2000);
         console.log(`Task added: ${item.type}`);
     });
+    process.exit();

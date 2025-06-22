@@ -16,9 +16,11 @@ const instructions_11 = "RJJRRRRR";
 const instructions_12 = "RJJRRRJ";
 const instructions_13 = "RJJJLJRJRJ";
 
-console.log(reachExit(instructions_1, new Set(obstacles_1)))
+// console.log(reachExit(instructions_1, obstacles_1));
+// console.log(reachExit(instructions_2, obstacles_1));
+console.log(reachExit(instructions_3, obstacles_1));
 
-function reachExit(instructions: string, obstacles:Set<number>): boolean {
+function reachExit(instructions, obstacles) {
   let position=0;
   let direction =1;
   
@@ -37,10 +39,13 @@ function reachExit(instructions: string, obstacles:Set<number>): boolean {
     {
       position += 2* direction;
     }
+  }
     
-    if(obstacles.has(position)){
+    // if(obstacles.has(position) || position !== 10){
+    //   return false;
+    // }
+    if(obstacles.includes(position) || position !== 10){
       return false;
     }
-  }
   return true;
 }
