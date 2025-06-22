@@ -17,35 +17,37 @@ const instructions_12 = "RJJRRRJ";
 const instructions_13 = "RJJJLJRJRJ";
 
 // console.log(reachExit(instructions_1, obstacles_1));
-// console.log(reachExit(instructions_2, obstacles_1));
-console.log(reachExit(instructions_3, obstacles_1));
+console.log(reachExit(instructions_2, obstacles_1));
+// console.log(reachExit(instructions_3, obstacles_1));
 
 function reachExit(instructions, obstacles) {
-  let position=0;
-  let direction =1;
-  
-  for(const move of instructions){
-    if(move==='L')
-    {
-      direction =-1;
-      position -=1;    
+  let position = 0;
+  let direction = 1;
+
+  for (const move of instructions) {
+    if (position === 10) {
+      return true;
     }
-    if(move ==='R')
-    {
-      direction =1;
-      position +=1;
-    }
-    else if(move === 'J')
-    {
-      position += 2* direction;
+    else {
+      if (move === 'L') {
+        direction = -1;
+        position -= 1;
+      }
+      if (move === 'R') {
+        direction = 1;
+        position += 1;
+      }
+      else if (move === 'J') {
+        position += 2 * direction;
+      }
     }
   }
-    
-    // if(obstacles.has(position) || position !== 10){
-    //   return false;
-    // }
-    if(obstacles.includes(position) || position !== 10){
-      return false;
-    }
+
+  // if(obstacles.has(position) || position !== 10){
+  //   return false;
+  // }
+  if (obstacles.includes(position) || position !== 10) {
+    return false;
+  }
   return true;
 }
